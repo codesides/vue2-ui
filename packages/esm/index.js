@@ -1,18 +1,28 @@
-import Plugin from './Button.js';
+import Plugin from './Alert.js';
+export { default as Alert } from './Alert.js';
+import Plugin$1 from './Aside.js';
+export { default as Aside } from './Aside.js';
+import Plugin$2 from './Button.js';
 export { default as Button } from './Button.js';
-import Plugin$1 from './Select.js';
+import Plugin$3 from './Select.js';
 export { default as Select } from './Select.js';
+import Plugin$4 from './Icon.js';
+export { default as Icon } from './Icon.js';
 import { merge } from './helpers.js';
 export { bound, createAbsoluteElement, createNewEvent, escapeRegExpChars, getMonthNames, getValueByPath, getWeekdayNames, hasFlag, indexOf, isCustomElement, isDefined, isMobile, isVueComponent, isWebpSupported, matchWithGroups, merge, mod, multiColumnSort, removeElement, sign, toCssWidth } from './helpers.js';
-import { s as setOptions, c as config, C as ConfigComponent } from './ConfigComponent-ac6b637c.js';
-export { C as ConfigProgrammatic } from './ConfigComponent-ac6b637c.js';
-import { u as use, r as registerComponentProgrammatic } from './plugins-0549e54e.js';
-import './object-define-property-dd3798ba.js';
+import { s as setOptions, c as config, C as ConfigComponent } from './ConfigComponent-a4503579.js';
+export { C as ConfigProgrammatic } from './ConfigComponent-a4503579.js';
+import { u as use, r as registerComponentProgrammatic } from './plugins-9bca0e2f.js';
+import './array-iteration-38745f77.js';
+import './function-name-f9132a69.js';
 
 var components = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  Button: Plugin,
-  Select: Plugin$1
+  Alert: Plugin,
+  Aside: Plugin$1,
+  Button: Plugin$2,
+  Select: Plugin$3,
+  Icon: Plugin$4
 });
 
 var HcUi = {

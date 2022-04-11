@@ -1,14 +1,15 @@
 import Vue from "vue";
 import App from "./App.vue";
 
-// import HcUi from "../packages/hcui";
-import { Button, Select } from "../packages/hcui";
+import HcUi from "../packages/hcui";
+// import { Button, Select, Alert } from "../packages/hcui";
 
 import "../packages/hcui.min.css";
 
-// Vue.use(HcUi);
-Vue.use(Button);
-Vue.use(Select);
+Vue.use(HcUi);
+// Vue.use(Button);
+// Vue.use(Select);
+// Vue.use(Alert);
 
 Vue.config.productionTip = false;
 

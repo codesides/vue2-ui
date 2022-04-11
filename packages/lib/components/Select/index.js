@@ -1,4 +1,4 @@
-/*! Components 组件的 v0.0.1 | js备注 */
+/*! Components 组件的 v0.0.2 | js备注 */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :

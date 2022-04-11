@@ -4,6 +4,7 @@ import cjs from "rollup-plugin-commonjs";
 import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import image from "@rollup/plugin-image";
+// import font from "rollup-plugin-font";
 
 import fs from "fs";
 import path from "path";
@@ -53,6 +54,19 @@ const vuePluginConfig = {
   },
 };
 
+const plugins = [
+  node({
+    extensions: [".vue", ".js"],
+  }),
+  cjs(),
+  vue(vuePluginConfig),
+  babel(babelConfig),
+  image(),
+  // font({
+  //   outDir: "./packages/fonts",
+  // }),
+];
+
 export default () => {
   const mapComponent = (name) => {
     return [
@@ -69,15 +83,7 @@ export default () => {
             vue: "Vue",
           },
         },
-        plugins: [
-          node({
-            extensions: [".vue", ".js"],
-          }),
-          cjs(),
-          vue(vuePluginConfig),
-          babel(babelConfig),
-          image(),
-        ],
+        plugins,
       },
     ];
   };
@@ -90,15 +96,7 @@ export default () => {
         format: "esm",
         dir: `packages/esm`,
       },
-      plugins: [
-        node({
-          extensions: [".vue", ".js"],
-        }),
-        vue(vuePluginConfig),
-        babel(babelConfig),
-        cjs(),
-        image(),
-      ],
+      plugins,
     },
     {
       input: entries,
@@ -108,22 +106,14 @@ export default () => {
         dir: "packages/cjs",
         exports: "named",
       },
-      plugins: [
-        node({
-          extensions: [".vue", ".js"],
-        }),
-        vue(vuePluginConfig),
-        babel(babelConfig),
-        cjs(),
-        image(),
-      ],
+      plugins,
     },
     {
       input: "src/index.js",
       external: ["vue"],
       output: {
         format: "umd",
-        name: capitalize("buefy"),
+        name: capitalize("hcui"),
         file: "packages/hcui.js",
         exports: "named",
         banner: bannerTxt,
@@ -131,15 +121,7 @@ export default () => {
           vue: "Vue",
         },
       },
-      plugins: [
-        node({
-          extensions: [".vue", ".js"],
-        }),
-        vue(vuePluginConfig),
-        babel(babelConfig),
-        cjs(),
-        image(),
-      ],
+      plugins,
     },
     {
       input: "src/index.js",
@@ -149,15 +131,7 @@ export default () => {
         file: "packages/hcui.esm.js",
         banner: bannerTxt,
       },
-      plugins: [
-        node({
-          extensions: [".vue", ".js"],
-        }),
-        vue(vuePluginConfig),
-        babel(babelConfig),
-        cjs(),
-        image(),
-      ],
+      plugins,
     },
     // individual components
     ...components.map((f) => mapComponent(f)).reduce((r, a) => r.concat(a), []),

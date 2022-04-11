@@ -1,8 +1,16 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HcButton title="123" />
-    <HcSelect />
+    <HcButton :round="false" type="primary" :plain="false">aaa</HcButton>
+    <hc-alert
+      title="成功提示的文案"
+      type="success"
+      description="文字说明文字说明文字说明文字说明文字说明文字说明"
+    >
+    </hc-alert>
+    <hc-aside>
+      <p>123231</p>
+    </hc-aside>
   </div>
 </template>
 
@@ -17,7 +25,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }

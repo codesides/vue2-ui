@@ -2,17 +2,24 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+var Alert = require('./Alert.js');
+var Aside = require('./Aside.js');
 var Button = require('./Button.js');
 var Select = require('./Select.js');
+var Icon = require('./Icon.js');
 var helpers = require('./helpers.js');
-var config = require('./ConfigComponent-6e0f59f2.js');
-var plugins = require('./plugins-392f5bb8.js');
-require('./object-define-property-0c52198e.js');
+var config = require('./ConfigComponent-61c02bbc.js');
+var plugins = require('./plugins-a86ae864.js');
+require('./array-iteration-42555ce0.js');
+require('./function-name-75375617.js');
 
 var components = /*#__PURE__*/Object.freeze({
   __proto__: null,
+  Alert: Alert["default"],
+  Aside: Aside["default"],
   Button: Button["default"],
-  Select: Select["default"]
+  Select: Select["default"],
+  Icon: Icon["default"]
 });
 
 var HcUi = {
@@ -31,8 +38,11 @@ var HcUi = {
 };
 plugins.use(HcUi);
 
+exports.Alert = Alert["default"];
+exports.Aside = Aside["default"];
 exports.Button = Button["default"];
 exports.Select = Select["default"];
+exports.Icon = Icon["default"];
 exports.bound = helpers.bound;
 exports.createAbsoluteElement = helpers.createAbsoluteElement;
 exports.createNewEvent = helpers.createNewEvent;

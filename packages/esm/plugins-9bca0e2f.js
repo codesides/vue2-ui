@@ -1,4 +1,4 @@
-import { f as functionUncurryThis, d as descriptors, m as functionName, o as objectDefineProperty } from './object-define-property-dd3798ba.js';
+import { p as objectDefineProperty, b as functionUncurryThis, q as descriptors, n as functionName } from './function-name-f9132a69.js';
 
 function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
 /* server only */
@@ -85,56 +85,6 @@ function normalizeComponent(template, style, script, scopeId, isFunctionalTempla
 
 var normalizeComponent_1 = normalizeComponent;
 
-var isOldIE = typeof navigator !== 'undefined' && /msie [6-9]\\b/.test(navigator.userAgent.toLowerCase());
-function createInjector(context) {
-  return function (id, style) {
-    return addStyle(id, style);
-  };
-}
-var HEAD = document.head || document.getElementsByTagName('head')[0];
-var styles = {};
-
-function addStyle(id, css) {
-  var group = isOldIE ? css.media || 'default' : id;
-  var style = styles[group] || (styles[group] = {
-    ids: new Set(),
-    styles: []
-  });
-
-  if (!style.ids.has(id)) {
-    style.ids.add(id);
-    var code = css.source;
-
-    if (css.map) {
-      // https://developer.chrome.com/devtools/docs/javascript-debugging
-      // this makes source maps inside style tags work properly in Chrome
-      code += '\n/*# sourceURL=' + css.map.sources[0] + ' */'; // http://stackoverflow.com/a/26603875
-
-      code += '\n/*# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(JSON.stringify(css.map)))) + ' */';
-    }
-
-    if (!style.element) {
-      style.element = document.createElement('style');
-      style.element.type = 'text/css';
-      if (css.media) style.element.setAttribute('media', css.media);
-      HEAD.appendChild(style.element);
-    }
-
-    if ('styleSheet' in style.element) {
-      style.styles.push(code);
-      style.element.styleSheet.cssText = style.styles.filter(Boolean).join('\n');
-    } else {
-      var index = style.ids.size - 1;
-      var textNode = document.createTextNode(code);
-      var nodes = style.element.childNodes;
-      if (nodes[index]) style.element.removeChild(nodes[index]);
-      if (nodes.length) style.element.insertBefore(textNode, nodes[index]);else style.element.appendChild(textNode);
-    }
-  }
-}
-
-var browser = createInjector;
-
 var FUNCTION_NAME_EXISTS = functionName.EXISTS;
 
 var defineProperty = objectDefineProperty.f;
@@ -173,4 +123,4 @@ var registerComponentProgrammatic = function registerComponentProgrammatic(Vue, 
   Vue.prototype.$hcui[property] = component;
 };
 
-export { registerComponent as a, browser as b, normalizeComponent_1 as n, registerComponentProgrammatic as r, use as u };
+export { registerComponent as a, normalizeComponent_1 as n, registerComponentProgrammatic as r, use as u };
