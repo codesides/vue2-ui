@@ -1,21 +1,32 @@
 <template>
   <div id="app">
-    <HcButton :round="false" type="primary" :plain="false">aaa</HcButton>
-    <hc-alert
-      title="成功提示的文案"
-      type="success"
-      description="文字说明文字说明文字说明文字说明文字说明文字说明"
-    >
-    </hc-alert>
-    <hc-aside>
-      <p>123231</p>
-    </hc-aside>
+    <Button />
+    <Alert />
+    <Layout />
+    <Icon />
+    <!-- <Container /> -->
+    <Message />
   </div>
 </template>
 
 <script>
+import Layout from "./component/Layout";
+import Icon from "./component/Icon.vue";
+import Button from "./component/Button.vue";
+import Alert from "./component/Alert.vue";
+import Container from "./component/Container.vue";
+import Message from "./component/Message.vue";
 export default {
   name: "App",
+  components: {
+    Layout,
+    Icon,
+    Button,
+    Alert,
+    // eslint-disable-next-line vue/no-unused-components
+    Container,
+    Message,
+  },
 };
 </script>
 

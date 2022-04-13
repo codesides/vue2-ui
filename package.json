@@ -22,13 +22,23 @@
     "ui",
     "components"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:codesides/vue2-ui.git"
+  },
+  "homepage": "https://github.com/codesides/vue2-ui",
+  "bugs": {
+    "url": "https://github.com/codesides/vue2-ui/issues"
+  },
   "scripts": {
     "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build:js": "rollup -c && rollup -c --environment MINIFY",
+    "build:js": "rollup -c rollup.config.prod.js && rollup -c rollup.config.prod.js --environment MINIFY",
+    "build:dev:js": "rollup -c rollup.config.dev.js && rollup -c rollup.config.dev.js --environment MINIFY",
     "build:scss": "sass src/scss/build.scss | node ./build/scss.js > packages/hcui.css && cleancss -o packages/hcui.min.css packages/hcui.css",
     "build:lib": "rimraf packages &&  npm run build:js && npm run build:scss &&  node ./build/staticDist.js",
+    "build:dev:lib": "rimraf packages &&  npm run build:dev:js && npm run build:scss &&  node ./build/staticDist.js",
     "clean": "rimraf packages",
     "publish": "npm publish",
     "publish:patch": "npm version patch && npm publish --access=public",
